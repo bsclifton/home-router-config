@@ -1,22 +1,24 @@
+# NOTE: the [0:0] part sets byte and packet counters to 0 (when rules are applied)
+# You can view current totals with iptables -L -v
 *nat
 :PREROUTING ACCEPT [0:0]
 :INPUT ACCEPT [0:0]
 :OUTPUT ACCEPT [0:0]
 :POSTROUTING ACCEPT [0:0]
 
-# enp0s31f6 is WAN interface, #enp3s0 is LAN interface
+# redirect HTTP for LAN clients through squid3 cache
+-A PREROUTING -i enp3s0 -p tcp --dport 80 -j REDIRECT --to-port 3128
+
+# enp0s31f6 is WAN interface, #enp3s0 is LAN interface, tun0 is the VPN interface
 -A POSTROUTING -o enp0s31f6 -j MASQUERADE
+#-A POSTROUTING -o tun0 -j MASQUERADE
 
 COMMIT
-
-
 
 *filter
 :INPUT ACCEPT [0:0]
 :FORWARD ACCEPT [0:0]
 :OUTPUT ACCEPT [0:0]
-
-
 
 # Service rules
 # basic global accept rules - ICMP, loopback, traceroute, established all accepted
@@ -27,20 +29,19 @@ COMMIT
 # enable traceroute rejections to get sent out
 -A INPUT -p udp -m udp --dport 33434:33523 -j REJECT --reject-with icmp-port-unreachable
 
-# DNS - accept from LAN
+# accept specific ports on LAN interface
+# > DNS
 -A INPUT -i enp3s0 -p tcp --dport 53 -j ACCEPT
 -A INPUT -i enp3s0 -p udp --dport 53 -j ACCEPT
-
-# SSH - accept from LAN
+# > SSH
 -A INPUT -i enp3s0 -p tcp --dport 22 -j ACCEPT
-
-# DHCP client requests - accept from LAN
+# > DHCP client requests
 -A INPUT -i enp3s0 -p udp --dport 67:68 -j ACCEPT
+# > squid3 cache interception
+-A INPUT -i enp3s0 -p tcp --dport 3128 -j ACCEPT
 
 # drop all other inbound traffic
 -A INPUT -j DROP
-
-
 
 # Forwarding rules
 # forward packets along established/related connections
@@ -48,6 +49,10 @@ COMMIT
 
 # forward from LAN (enp3s0) to WAN (enp0s31f6)
 -A FORWARD -i enp3s0 -o enp0s31f6 -j ACCEPT
+
+# VPN incoming to LAN
+#-A FORWARD -i tun0 -o enp3s0 -j ACCEPT
+#-A FORWARD -i enp3s0 -o tun0 -j ACCEPT
 
 # drop all other forwarded traffic
 -A FORWARD -j DROP
