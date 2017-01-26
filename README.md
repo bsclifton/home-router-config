@@ -9,10 +9,11 @@ Configuration is installed on top of [Ubuntu 16.04](http://releases.ubuntu.com/1
 ### Installing
 
 1. Purchase or build a PC which has two NICs. For my build, I went with:
- - ASUS H110T/CSM H110 Thin Mini-ITX CSM Motherboard (Dual gigabit NICs)
- - Intel 3.70 GHz Core i3-6100 3M Cache Processor
- - Crucial 32GB Kit (16GBx2) DDR4 2133 MT/s (PC4-17000) SODIMM 260-Pin Memory
- - Transcend 128GB SATA III 6Gb/s MTS400 42 mm M.2 SSD Solid State Drive
+
+ - <a target="_blank" href="https://www.amazon.com/gp/product/B01EZGYSGG/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B01EZGYSGG&linkCode=as2&tag=bria07-20&linkId=fed057ee21cea6ef87f1daf5870a1f26">ASUS H110T/CSM H110 Thin Mini-ITX CSM Motherboard (Dual gigabit NICs)</a>
+ - <a target="_blank" href="https://www.amazon.com/gp/product/B015VPX2EO/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B015VPX2EO&linkCode=as2&tag=bria07-20&linkId=aa659fb1d3f528e99c3253a081f7783c">Intel 3.70 GHz Core i3-6100 3M Cache Processor</a>
+ - <a target="_blank" href="https://www.amazon.com/gp/product/B015YPB8ME/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B015YPB8ME&linkCode=as2&tag=bria07-20&linkId=601afba52ae94577aa9291aa866d06f7">Crucial 32GB Kit (16GBx2) DDR4 2133 MT/s (PC4-17000) SODIMM 260-Pin Memory</a>
+ - <a target="_blank" href="https://www.amazon.com/gp/product/B00KLTPUU0/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00KLTPUU0&linkCode=as2&tag=bria07-20&linkId=cdcacb9780667a869d0ea28ed1c17a92">Transcend 128GB SATA III 6Gb/s MTS400 42 mm M.2 SSD Solid State Drive</a>
 
 2. [Download and install](http://releases.ubuntu.com/16.04/) the latest release for Ubuntu 16.04.
 Choosing the server package is preferred to avoid installing any desktop components (such as Unity).
