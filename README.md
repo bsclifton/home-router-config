@@ -1,6 +1,10 @@
 ## home-router-config
 
-Build configuration used for my home router (please note this is still a work in progress).
+Configuration used for my home router (please note this is still a work in progress).
+
+For my overall home configuration, please see https://github.com/bsclifton/home-config
+
+### Preface
 
 Configuration is installed on top of [Ubuntu 16.04](http://releases.ubuntu.com/16.04/) (Xenial Xerus).
 
