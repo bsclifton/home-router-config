@@ -25,19 +25,12 @@ Choosing the server package is preferred to avoid installing any desktop compone
 3. Run the following to get started:
 
 ```sh
-sudo wget http://apt-stable.ntop.org/16.04/all/apt-ntop-stable.deb
-sudo dpkg -i apt-ntop-stable.deb
-sudo apt update && sudo apt upgrade -y
-# regular packages
 sudo apt install -y vim git isc-dhcp-server unzip openvpn && sudo apt remove -y vim-tiny nano
-# ntop - https://www.ntop.org/products/traffic-analysis/ntop/
-sudo apt install pfring nprobe ntopng ntopng-data n2disk cento nbox
+sudo apt update && sudo apt upgrade -y
 git clone git@github.com:bsclifton/home-router-config.git
 cd home-router-config/
 #TODO: ...
 cp -rp ./etc /etc/
-sudo systemctl start ntopng
-sudo systemctl enable ntopng
 ```
 
 ### About this configuration
