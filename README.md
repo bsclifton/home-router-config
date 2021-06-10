@@ -1,8 +1,8 @@
 ## home-router-config
 
-Configuration used for my home router (please note this is still a work in progress).
+This is a configuration that I had used on my home router from 2017 until 2020. In 2020, I decomissioned my custom router in favor of Ubiquity hardware.
 
-For my overall home configuration, please see https://github.com/bsclifton/home-config
+Also see https://github.com/bsclifton/home-config (may be out of date)
 
 ### Preface
 
